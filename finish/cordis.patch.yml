@@ -1,0 +1,21 @@
+# dsh-reasoning-slider as a PROFILE BUNDLE layer.
+#
+# `dsh plugin add <this package>` reads this file (through
+# `dsh.bundle.patch` in package.json), loads it as one more patch layer on top of
+# the profile's bundle stack, and appends this package name to
+# `dsh.profile.bundles`. The single row below is what mounts the plugin:
+#
+#   * `name: dsh-reasoning-slider` is this same package. `dsh.client` in
+#     package.json is what turns its `./client` export into a browser bundle, so
+#     the row and the browser half always come from one install - there is no
+#     separate client package to add.
+#   * the user layer (`~/.dsh/profiles/<profile>/cordis.patch.yml`) and any
+#     `--patch` overlays still apply after this layer, so a deployment can
+#     disable this row by id or override it.
+#
+# Removing the plugin: `dsh plugin remove dsh-reasoning-slider` (or delete this
+# entry), then restart the host. The shipped ModelSelect then renders the seat
+# again, because this plugin only shadows it - it never modifies it.
+- insert:
+    - id: reasoning-slider
+      name: dsh-reasoning-slider
