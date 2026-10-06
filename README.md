@@ -1,4 +1,5 @@
 # dsh-reasoning-slider
+由ds全权完成
 
 给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）Web GUI 写的客户端插件：
 把输入框工具栏里的**模型**控件换成一个可以直接**拖动**的**推理等级（reasoning effort）滑动条**。
